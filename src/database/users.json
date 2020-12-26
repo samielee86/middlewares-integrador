@@ -1,1 +1,23 @@
-[]
+[
+ {
+  "id": 0
+ },
+ {
+  "id": 1,
+  "email": "samie@gmail.com",
+  "password": "$2a$12$FDd4nxHyXwi54VZycxtWsOjKr0NH.2tt4DNR8UsWoQ6qqJvntobhW",
+  "avatar": "1607544112288IMG_1060.jpg"
+ },
+ {
+  "id": 2,
+  "email": "juan@gmail.com",
+  "password": "$2a$12$LVrv3TYBhesuGyOqr1qEnOtxnvSNJcPlt1LP32i6SZGyQQAocByHi",
+  "avatar": "16090122053588727277406_6_1_1.jpg"
+ },
+ {
+  "id": 3,
+  "email": "lauti@gmail.com",
+  "password": "$2a$12$xqlk3CSsOURuGSH0Cx868O9OjYl8BQlc2X1Srd/kF.Y9K/SRGV1gS",
+  "avatar": "16090126325808727277406_6_3_1.jpg"
+ }
+]
