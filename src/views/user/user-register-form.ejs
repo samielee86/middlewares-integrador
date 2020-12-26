@@ -15,11 +15,10 @@
 
 			<% if (typeof errors != "undefined") { %> 
 			<ul class="col-12">
-				<% for (let i=0; i < errors.length; i++) { %>
-					<li> <%= errors[i].msg %> </li>
+				<% for (error of errors) { %>
+					<li> <%= error.msg %> </li>
 				<% } %>
 			</ul>
-			
 			<% } %> 
 
 			<div class="col-6">

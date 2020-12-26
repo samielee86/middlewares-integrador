@@ -13,12 +13,25 @@
 			<div class="col-12">
 				<h2 class="products-title">Login</h2>
 			</div>
-			<div class="col-6"> 
+			<div class="col-6">
+				<% if (typeof errors != "undefined") { %>
+					<ul class="col-12">
+						<% for (error of errors) { %>
+							<li> <%= error.msg %> </li>
+						<% } %>
+					</ul>
+				<% } %>
+				 
+				 
 				<form action="/user/login/" method="POST">
 					<div class="row product-detail">
 						<div class="col-12">
 							<label for="email" class="form-label">Email:</label>
+							<% if (typeof old != "undefined") { %>
+								<input type="text" id="email" name="email" placeholder="Ej: example@example.com" class="form-input" value="<%= old.email ? old.email : '' %>">
+							<% } else { %>
 							<input type="text" id="email" name="email" placeholder="Ej: example@example.com" class="form-input" value="">
+							<% } %>
 						</div>
 						<div class="col-12">
 							<label for="price" class="form-label">Contraseña:</label>
