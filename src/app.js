@@ -6,6 +6,7 @@ const logger = require('morgan');
 const path = require('path');
 const methodOverride = require('method-override'); // Pasar poder usar los métodos PUT y DELETE
 const session = require('express-session');
+const log = require('./middlewares/log')
 const setLocals = require('./middlewares/setLocals')
 
 // ************ express() - (don't touch) ************
@@ -29,6 +30,7 @@ app.use(session({
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views')); // Define la ubicación de la carpeta de las Vistas
 
+app.use(log);
 app.use(setLocals);
 
 

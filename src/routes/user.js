@@ -14,23 +14,25 @@ const upload = multer({ storage: storage })
 
 const userController = require('../controllers/userController');
 const validation = require('../middlewares/validation');
+const Auth = require('../middlewares/Auth');
+const Guest = require('../middlewares/Guest');
 
 // Muestra la vista de registro
-router.get('/register', userController.showRegister);
+router.get('/register', Guest, userController.showRegister);
 
 // Procesa la vista de registro
-router.post('/register', upload.any(), validation.register, userController.processRegister);
+router.post('/register', Guest, upload.any(), validation.register, userController.processRegister);
 
 // Muestra la vista de login
-router.get('/login', userController.showLogin);
+router.get('/login', Guest, userController.showLogin);
 
 // Procesa la vista de login
-router.post('/login', validation.login,  userController.processLogin);
+router.post('/login', Guest, validation.login,  userController.processLogin);
 
 // Muestra el perfil del usuario
-router.get('/profile', userController.showProfile);
+router.get('/profile', Auth, userController.showProfile);
 
 // Cierra la sesión
-router.get('/logout', userController.logout);
+router.get('/logout', Auth, userController.logout);
 
 module.exports = router;

@@ -48,9 +48,7 @@ module.exports = {
         req.session.user = userToLog;
 
         if(req.body.remember) {
-            if (req.body.remember){
-                res.cookie('user', userFound.id, {maxAge: 1000 * 60 * 60 * 24})
-            } 
+            res.cookie('user', userToLog.id, {maxAge: 1000 * 60 * 60 * 24});
         }
         return res.redirect('/');
     },
@@ -58,8 +56,11 @@ module.exports = {
         return res.render('user/profile');
     },
     logout: (req, res) => {
-        // Do the magic
-        return res.redirect('/');
+        req.session.destroy(()=> {
+            req.session = null
+            res.cookie('user', null, {maxAge: -1})
+            return res.redirect('/')
+        });
     }
 
 }
